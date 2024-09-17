@@ -1,16 +1,65 @@
+#app {
+  width: fit-content;
+  margin: 0 auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px 20px;
+}
+
+#app > h1 {
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.contact-form input {
+  width: 60%;
+}
+
+.contact-form button {
+  width: 40%;
+}
+
+.contact-form button,
+.contact-form input {
+  padding: 5px;
+}
+
+#contact-list {
+  width: 100%;
+  padding: 0;
+}
+
 .contact-element {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(180 180 180 / 1);
+}
+
+.contact-element:last-of-type {
+  border-bottom: none;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.contact-buttons button {
+  padding: 3px 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .delete-contact {
   color: rgb(116, 0, 0);
-  font-weight: bold;
 }
 
 .edit-contact {
   color: rgb(87, 87, 255);
-  font-weight: bold;
 }

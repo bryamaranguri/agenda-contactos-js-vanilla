@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de Concatos</title>
+    <title>Gestión de Contactos</title>
     <link rel="stylesheet" href="./style.css" />
     <script type="module" src="./script.js"></script>
   </head>
@@ -11,20 +11,18 @@
     <div id="app">
       <h1>Gestión de Contactos</h1>
 
-      <input
-        type="text"
-        id="contact-name"
-        placeholder="Ingresa nombre del contacto"
-      />
-      <button id="save-contact">Agregar Contacto</button>
+      <div class="contact-form">
+        <input
+          type="text"
+          id="contact-name"
+          placeholder="Ingresa nombre del contacto"
+        />
+        <button id="save-contact">Agregar Contacto</button>
+      </div>
 
       <h3>Contactos totales: <span id="contact-counter">0</span></h3>
 
-      <ul id="contact-list">
-        <!-- Aquí aparecerán los contactos -->
-        <!-- .contact-item -->
-        <!-- <li id="contact-1" class="contact-item">Persona 1</li> -->
-      </ul>
+      <ul id="contact-list"></ul>
     </div>
   </body>
 </html>
