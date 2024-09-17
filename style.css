@@ -1,0 +1,16 @@
+.contact-element {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.delete-contact {
+  color: rgb(116, 0, 0);
+  font-weight: bold;
+}
+
+.edit-contact {
+  color: rgb(87, 87, 255);
+  font-weight: bold;
+}
