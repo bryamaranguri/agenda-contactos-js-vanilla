@@ -1,6 +1,6 @@
 # Make It Real - GESTIÓN DE CONTACTOS
 
-This is a solution to the '**Gestión de Contactos**' project of the Make It Real course.
+This is a solution to the work in pairs '**Gestión de Contactos**' project of the Make It Real course.
 
 ## Table of contents
 
