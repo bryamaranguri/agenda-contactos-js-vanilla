@@ -1,8 +1,14 @@
+// Método para acceder al DOM de forma más reducida
 const $ = (element) => document.querySelector(element);
+
+// Variables necesarias para la edición
 let isEditing = false;
 let currentEditingContact = null;
+
+// Obtención de datos del localStorage
 let contactData = JSON.parse(localStorage.getItem("contacts")) || [];
 
+// Elementos del DOM
 const contactNameInput = $("#contact-name");
 const saveContactBtn = $("#save-contact");
 const contactList = $("#contact-list");
@@ -20,17 +26,21 @@ function saveToLocalStorage() {
 
 // Crear un nuevo elemento de contacto
 function createContactElement(name, index) {
+  // Elemento padre de cada contacto
   const li = document.createElement("li");
   li.classList.add("contact-element");
 
+  // Un párrafo para el nombre del contacto
   const p = document.createElement("p");
   p.classList.add("contact-item");
   p.textContent = name;
   p.id = `contact-${index}`;
 
+  // Botones de Editar y Eliminar junto con su contenedor
   const btnEdit = document.createElement("button");
   btnEdit.classList.add("edit-contact");
   btnEdit.textContent = "✎";
+  // Los id se crean con esta sintaxis para luego acceder con split
   btnEdit.id = `edit-${index}`;
 
   const btnDelete = document.createElement("button");
@@ -51,7 +61,8 @@ function createContactElement(name, index) {
 
 // Renderizar todos los contactos desde la lista de datos
 function renderContacts() {
-  contactList.innerHTML = ""; // Limpiar lista actual
+  // Limpiar lista actual
+  contactList.innerHTML = "";
   contactData.forEach((contact, index) => {
     const contactElement = createContactElement(contact, index);
     contactList.appendChild(contactElement);
@@ -74,21 +85,24 @@ function addContact() {
     return;
   }
 
-  contactData.push(contactName); // Añadir al array de datos
-  sortContacts(); // Ordenar contactos alfabéticamente
-  saveToLocalStorage(); // Guardar en localStorage
-  renderContacts(); // Actualizar la UI
+  // Añadir al array de datos
+  contactData.push(contactName);
+  sortContacts();
+  saveToLocalStorage();
+  renderContacts();
 
-  contactNameInput.value = ""; // Limpiar el input
+  // Limpiar el input
+  contactNameInput.value = "";
 }
 
 // Editar un contacto existente
 function editContact() {
   contactData[currentEditingContact] = contactNameInput.value.trim();
-  sortContacts(); // Ordenar contactos alfabéticamente después de la edición
-  saveToLocalStorage(); // Guardar cambios en localStorage
-  renderContacts(); // Volver a renderizar
+  sortContacts();
+  saveToLocalStorage();
+  renderContacts();
   contactNameInput.value = "";
+  // Devolver las variables de edición a la normalidad
   saveContactBtn.textContent = "Agregar Contacto";
   isEditing = false;
   currentEditingContact = null;
@@ -96,7 +110,10 @@ function editContact() {
 
 // Manejar clics en elementos dinámicos (Editar y Eliminar)
 document.body.addEventListener("click", function (e) {
+  // Depende del elemento clickeado, se ejecuta una acción
   if (e.target && e.target.classList.contains("edit-contact")) {
+    // Si se va a editar, actualizar las variables de edición
+    // Obetener el id del contacto a editar
     const editingId = e.target.id.split("-")[1];
     contactNameInput.value = contactData[editingId];
     saveContactBtn.textContent = "Editar Contacto";
@@ -105,10 +122,11 @@ document.body.addEventListener("click", function (e) {
   }
 
   if (e.target && e.target.classList.contains("delete-contact")) {
+    // Obetener el id del contacto a eliminar
     const deleteId = e.target.id.split("-")[1];
-    contactData.splice(deleteId, 1); // Eliminar del array de datos
-    saveToLocalStorage(); // Guardar cambios en localStorage
-    renderContacts(); // Actualizar la UI
+    contactData.splice(deleteId, 1);
+    saveToLocalStorage();
+    renderContacts();
   }
 });
 
