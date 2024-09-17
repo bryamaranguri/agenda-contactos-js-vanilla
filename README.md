@@ -72,6 +72,9 @@ Valeria Lozano _a.k.a._ **Bubbl33s**
 - [GitHub](https://www.your-site.com)
 - [Codepen](https://codepen.io/Bubbl33s)
 
+Bryam Aranguri
+- [GitHub](https://github.com/bryamaranguri)
+
 ## Acknowledgments
 
 - Make it Real mentors
